@@ -216,6 +216,6 @@ USER node
 ENV NODE_ENV=production
 # Expose 4061 for NORTH PORT, 7896 for HTTP PORT
 EXPOSE ${IOTA_NORTH_PORT:-4061} ${IOTA_HTTP_PORT:-7896}
-CMD ["node", "/opt/iotaul/bin/iotagent-ul", "-- ", "config.js"]
+CMD ["node", "--inspect=0.0.0.0", "/opt/iotaul/bin/iotagent-ul", "-- ", "config.js"]
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s \
    CMD ["npm", "run", "healthcheck"]

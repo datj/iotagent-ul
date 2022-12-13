@@ -32,6 +32,7 @@
     "test:coverage": "nyc --reporter=lcov mocha -- --recursive 'test/**/*.js' --reporter spec --exit",
     "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
     "test:watch": "npm run test -- -w ./lib",
+    "start-debug": "node --inspect=0.0.0.0 /opt/iotaul/bin/iotagent-ul --  config.js",
     "watch": "watch 'npm test && npm run lint' ./lib ./test"
   },
   "dependencies": {
