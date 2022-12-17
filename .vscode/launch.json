@@ -5,13 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Docker: Attach to Node",
             "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
+            "request": "attach",
+            "port": 9229,
+            "address": "localhost",
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "/usr/src/app",
+            "protocol": "inspector",
             "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/lib/iotagent-ul"
+              "${workspaceFolder}/node_modules/**/*.js",
+              "<node_internals>/**/*.js"
+            ]
         }
     ]
 }
