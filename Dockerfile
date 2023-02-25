@@ -185,6 +185,13 @@ LABEL "org.nodejs.version"="${NODE_VERSION}"
 COPY --from=builder /opt/iotaul /opt/iotaul
 WORKDIR /opt/iotaul
 
+RUN apt-get update && apt-get install -y --no-install-recommends curl && \
+    apt-get install -y ca-certificates
+
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y 
+#&& \
+#    chmod u+x "$HOME/.cargo/env" && "$HOME/.cargo/env"
+
 USER node
 ENV NODE_ENV=production
 # Expose 4061 for NORTH PORT, 7896 for HTTP PORT
